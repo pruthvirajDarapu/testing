@@ -11,17 +11,13 @@
             margin: 0;
             padding: 20px;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
         .category {
             margin-bottom: 40px;
         }
         .category h2 {
             text-align: left;
             color: #333;
+            cursor: pointer;
         }
         .category h2 a {
             text-decoration: none;
@@ -29,6 +25,12 @@
         }
         .category h2 a:hover {
             text-decoration: underline;
+        }
+        .gallery {
+            display: none;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
         }
         .quote {
             width: 200px;
@@ -44,15 +46,21 @@
             object-fit: cover;
         }
     </style>
+    <script>
+        function toggleGallery(categoryId) {
+            const gallery = document.getElementById(categoryId);
+            gallery.style.display = gallery.style.display === 'none' || gallery.style.display === '' ? 'flex' : 'none';
+        }
+    </script>
 </head>
 <body>
-    <h1>CM Writings</h1>
+    <h1>Quotes Gallery</h1>
     
     <div class="category">
-        <h2>
+        <h2 onclick="toggleGallery('loveGallery')">
             Love (<a href="https://www.youtube.com/watch?v=zHiKFSBO_JE" target="_blank">https://www.youtube.com/watch?v=zHiKFSBO_JE</a>)
         </h2>
-        <div class="gallery">
+        <div class="gallery" id="loveGallery">
             <div class="quote"><img src="images/Screenshot.jpg" alt="Love Quote 1"></div>
             <div class="quote"><img src="images/Screenshot.jpg" alt="Love Quote 2"></div>
             <!-- Add more love quotes here -->
@@ -60,8 +68,8 @@
     </div>
 
     <div class="category">
-        <h2>Life</h2>
-        <div class="gallery">
+        <h2 onclick="toggleGallery('lifeGallery')">Life</h2>
+        <div class="gallery" id="lifeGallery">
             <div class="quote"><img src="images/life1.jpg" alt="Life Quote 1"></div>
             <div class="quote"><img src="images/life2.jpg" alt="Life Quote 2"></div>
             <!-- Add more life quotes here -->
@@ -69,8 +77,8 @@
     </div>
 
     <div class="category">
-        <h2>Others</h2>
-        <div class="gallery">
+        <h2 onclick="toggleGallery('othersGallery')">Others</h2>
+        <div class="gallery" id="othersGallery">
             <div class="quote"><img src="images/others1.jpg" alt="Other Quote 1"></div>
             <div class="quote"><img src="images/others2.jpg" alt="Other Quote 2"></div>
             <!-- Add more other quotes here -->
