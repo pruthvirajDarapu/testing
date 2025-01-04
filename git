@@ -1,0 +1,47 @@
+import subprocess
+
+def set_git_credentials(username, email, credential_helper="store"):
+    """
+    Configure Git credentials globally.
+
+    Args:
+        username (str): Git username.
+        email (str): Git email address.
+        credential_helper (str): Git credential helper. Defaults to "store".
+    """
+    try:
+        # Validate inputs
+        if not username or not email:
+            raise ValueError("Username and email cannot be empty.")
+        
+        # Set the username
+        result = subprocess.run(["git", "config", "--global", "user.name", username], check=True, capture_output=True, text=True)
+        print(f"Git username set to: {username}")
+        print(result.stdout)
+        
+        # Set the email
+        result = subprocess.run(["git", "config", "--global", "user.email", email], check=True, capture_output=True, text=True)
+        print(f"Git email set to: {email}")
+        print(result.stdout)
+        
+        # Set the credential helper
+        result = subprocess.run(["git", "config", "--global", "credential.helper", credential_helper], check=True, capture_output=True, text=True)
+        print(f"Git credential helper set to: {credential_helper}")
+        print(result.stdout)
+        
+        print("Git credentials configured successfully.")
+    except ValueError as ve:
+        print(f"Input Error: {ve}")
+    except subprocess.CalledProcessError as e:
+        print("An error occurred while configuring Git credentials.")
+        print(f"Error: {e}")
+        print(f"Output: {e.output.decode() if e.output else 'No output available.'}")
+
+if __name__ == "__main__":
+    # Replace these with your username and email, or allow user input
+    username = input("Enter Git username: ").strip()
+    email = input("Enter Git email: ").strip()
+    credential_helper = input("Enter Git credential helper (default: store): ").strip() or "store"
+    
+    # Call the function
+    set_git_credentials(username, email, credential_helper)

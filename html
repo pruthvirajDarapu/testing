@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category h2 {
+            text-align: center;
+            color: #333;
+        }
+        .quote {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .quote img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quotes Gallery</h1>
+    
+    <div class="category">
+        <h2>Love</h2>
+        <div class="gallery">
+            <div class="quote"><img src="path/to/love1.jpg" alt="Love Quote 1"></div>
+            <div class="quote"><img src="path/to/love2.jpg" alt="Love Quote 2"></div>
+            <!-- Add more love quotes here -->
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Life</h2>
+        <div class="gallery">
+            <div class="quote"><img src="path/to/life1.jpg" alt="Life Quote 1"></div>
+            <div class="quote"><img src="path/to/life2.jpg" alt="Life Quote 2"></div>
+            <!-- Add more life quotes here -->
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Others</h2>
+        <div class="gallery">
+            <div class="quote"><img src="path/to/others1.jpg" alt="Other Quote 1"></div>
+            <div class="quote"><img src="path/to/others2.jpg" alt="Other Quote 2"></div>
+            <!-- Add more other quotes here -->
+        </div>
+    </div>
+</body>
+</html>
